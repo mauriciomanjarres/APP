@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/user.dart';
 
 class AuthService {
@@ -30,6 +30,10 @@ class AuthService {
         name: user.displayName ?? '',
         email: user.email ?? '',
         role: 'user',
+        unlockedLevels: [1],
+        levelStars: {},
+        streak: 0,
+        totalStars: 0,
         photoUrl: user.photoURL ?? '',
       );
       await _saveUserToPrefs(currentUser!);
@@ -38,6 +42,7 @@ class AuthService {
       final docSnapshot = await userDoc.get();
       if (!docSnapshot.exists) {
         await userDoc.set(currentUser!.toJson());
+        print('Usuario guardado en Firestore');
       }
       return currentUser;
     }
@@ -54,9 +59,17 @@ class AuthService {
         name: name,
         email: email,
         role: 'user',
+        unlockedLevels: [1],
+        levelStars: {},
+        streak: 0,
+        totalStars: 0,
         photoUrl: user.photoURL ?? '',
       );
       await _saveUserToPrefs(currentUser!);
+
+      // Guardar en Firestore
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).set(currentUser!.toJson());
+
       return currentUser;
     }
     return null;
