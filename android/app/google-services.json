@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "8549784372",
+    "project_id": "appingles-3106c",
+    "storage_bucket": "appingles-3106c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8549784372:android:4c55e5f79f1a317ab4e361",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWKdgzQPQfGYH7JaCn6qEfCWAGiT0516w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8549784372:android:7d3d019af34e6eb2b4e361",
+        "android_client_info": {
+          "package_name": "com.example.proyecto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWKdgzQPQfGYH7JaCn6qEfCWAGiT0516w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
